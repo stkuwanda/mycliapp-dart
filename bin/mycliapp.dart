@@ -10,7 +10,7 @@ void main(List<String> arguments) {
     ..age = 29;
   print(person.greet());
 
-  final user = User('U111', Role.admin, 'Simba', 34);
+  final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
   print(user.greet());
 }
 
@@ -18,6 +18,7 @@ class Person {
   late String name;
   late int age;
 
+  // Constructor with positional parametes
   Person(this.name, this.age);
 
   String greet() {
@@ -30,13 +31,20 @@ class User extends Person {
   Role role;
 
   // Constructor with all parameters
-  User(this.id, this.role, String name, int age) : super(name, age);
+  // required named parameters for better clarity
+  User({
+    required this.id,
+    required this.role,
+    required String name,
+    required int age,
+  }) : super(name, age);
 
   // Named constructor for guest users
   User.byId(this.id) : role = Role.guest, super('Guest', 0);
 
   // Named constructor for default admin user
-  User.defaultAdmin() : this('A001', Role.admin, 'Admin', 30);
+  User.defaultAdmin()
+    : this(id: 'A001', role: Role.admin, name: 'Admin', age: 30);
 
   @override
   String greet() {
