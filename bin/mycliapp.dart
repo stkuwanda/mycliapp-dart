@@ -8,6 +8,8 @@ void main(List<String> arguments) {
   final person = Person('Simba', 34)
     ..name = 'Seynt'
     ..age = 29;
+  final defaultPerson = Person();
+  print(defaultPerson.greet());
   print(person.greet());
 
   final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
@@ -19,7 +21,7 @@ class Person {
   late int age;
 
   // Constructor with positional parametes
-  Person(this.name, this.age);
+  Person([this.name = 'Default', this.age = 0]);
 
   String greet() {
     return 'Hello my name is $name and I am $age years old.';
