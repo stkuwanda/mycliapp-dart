@@ -23,12 +23,23 @@ void main(List<String> arguments) {
   if (identical(person1, person2)) {
     print('person1 and person2 are identical (same memory location).');
   } else {
-    print('person1 and person2 are NOT identical (different memory locations).');
+    print(
+      'person1 and person2 are NOT identical (different memory locations).',
+    );
   }
 
+  final personFromMap = User.fromMap({
+    'id': 'U123',
+    'role': Role.admin,
+    'name': 'Mufasa',
+    'age': 50,
+  });
+
   final defaultPerson = Person();
+
   print(defaultPerson.greet());
   print(person.greet());
+  print(personFromMap.greet());
 
   final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
   print(user.greet());
