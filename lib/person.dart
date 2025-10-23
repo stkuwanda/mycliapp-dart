@@ -1,6 +1,7 @@
 class Person {
-  String _name;
-  int _age;
+  // private and immutable fields
+  final String _name; 
+  final int _age;
 
   // Constructor with optional, positional parameters and default values
   // initializer list to set private fields
