@@ -9,5 +9,5 @@ class Singleton {
   Singleton._() : name = 'SingletonNameInstance';
 
   // Factory constructor to return the same instance every time
-  factory Singleton() =>_instance;
+  factory Singleton() => _instance;
 }
