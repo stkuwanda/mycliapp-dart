@@ -8,7 +8,24 @@ void main(List<String> arguments) {
   // final person = Person('Simba', 34)
   //   ..name = 'Seynt'
   //   ..age = 29;
-  final person = Person('Simba', 34);
+
+  final person = Person('Simba', 34); // final instance
+  const person1 = Person('Simba', 34); // compile-time constant instance
+  const person2 = Person('Simba', 34); // another compile-time constant instance
+
+  // Checks if both instances are identical (same memory location)
+  if (identical(person, person1)) {
+    print('person and person1 are identical (same memory location).');
+  } else {
+    print('person and person1 are NOT identical (different memory locations).');
+  }
+
+  if (identical(person1, person2)) {
+    print('person1 and person2 are identical (same memory location).');
+  } else {
+    print('person1 and person2 are NOT identical (different memory locations).');
+  }
+
   final defaultPerson = Person();
   print(defaultPerson.greet());
   print(person.greet());
