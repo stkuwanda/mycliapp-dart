@@ -1,4 +1,5 @@
 import 'package:mycliapp/person.dart';
+import 'package:mycliapp/singleton.dart';
 import 'package:mycliapp/static.dart';
 import 'package:mycliapp/user.dart';
 import 'package:mycliapp/role.dart';
@@ -49,4 +50,14 @@ void main(List<String> arguments) {
   const appVersion = Static.version;
   print('App Version: $appVersion');
   Static.printAppInfo();
+
+  // Singleton usage
+  final singleton1 = Singleton();
+  final singleton2 = Singleton();
+
+  if (identical(singleton1, singleton2)) {
+    print('singleton1 and singleton2 are identical (same instance).');
+  } else {
+    print('singleton1 and singleton2 are NOT identical (different instances).');
+  }
 }
