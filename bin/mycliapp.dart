@@ -34,6 +34,7 @@ class User extends Person {
 
   // Constructor with all parameters
   // required named parameters for better clarity
+  // forwarding name and age to the superclass constructor
   User({
     required this.id,
     required this.role,
@@ -41,10 +42,10 @@ class User extends Person {
     required int age,
   }) : super(name, age);
 
-  // Named constructor for guest users
+  // Named constructor for guest users with initializer list and constructor forwarding
   User.byId(this.id) : role = Role.guest, super('Guest', 0);
 
-  // Named constructor for default admin user
+  // Named constructor for default admin user with constructor forwarding and initializer list
   User.defaultAdmin()
     : this(id: 'A001', role: Role.admin, name: 'Admin', age: 30);
 
