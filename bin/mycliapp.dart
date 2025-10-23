@@ -1,4 +1,5 @@
 import 'package:mycliapp/person.dart';
+import 'package:mycliapp/static.dart';
 import 'package:mycliapp/user.dart';
 import 'package:mycliapp/role.dart';
 
@@ -43,4 +44,9 @@ void main(List<String> arguments) {
 
   final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
   print(user.greet());
+
+  // Using static memebers of a class
+  const appVersion = Static.version;
+  print('App Version: $appVersion');
+  Static.printAppInfo();
 }
