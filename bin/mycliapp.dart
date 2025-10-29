@@ -1,5 +1,6 @@
 import 'package:mycliapp/mycliapp.dart' as mycli;
 import 'package:mycliapp/math.dart';
+import 'package:characters/characters.dart';
 
 void main(List<String> arguments) {
   print(
@@ -14,6 +15,9 @@ void main(List<String> arguments) {
 
   final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
   print(user.greet());
+
+  const family = '👨🏾‍👩🏾‍👧🏾‍👦🏾';
+  print('grapheme clusters: ${family.characters.length}');
 }
 
 class Person {
