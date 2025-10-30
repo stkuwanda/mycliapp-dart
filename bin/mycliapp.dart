@@ -64,4 +64,15 @@ void main(List<String> arguments) {
   } else {
     print('singleton1 and singleton2 are NOT identical (different instances).');
   }
+
+  const guess = 'dog';
+  print('boolean :${guess == 'dog'}');
+
+  // function nested inside another function 
+  String run() {
+    print('running...');
+    return 'run';
+  }
+
+  run();
 }
