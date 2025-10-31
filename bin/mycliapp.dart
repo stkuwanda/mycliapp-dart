@@ -1,4 +1,5 @@
 import 'package:mycliapp/person.dart';
+import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
 import 'package:mycliapp/static.dart';
 import 'package:mycliapp/user.dart';
@@ -75,4 +76,10 @@ void main(List<String> arguments) {
   }
 
   run();
+
+  // Using Point class with const constructor and const factory forwarding constructor
+  const p1 = Point.origin(); // ✅ Allowed: const factory forwarding
+  const p2 = Point(1, 2);     // ✅ Also allowed
+  print('Point p1: (${p1.x}, ${p1.y})');
+  print('Point p2: (${p2.x}, ${p2.y})');
 }
