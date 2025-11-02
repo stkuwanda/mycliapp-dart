@@ -1,4 +1,6 @@
 // Lists have a zero based index and are ordered positionally by default
+import 'dart:math';
+
 import 'package:mycliapp/desserts.dart';
 
 void runLists() {
@@ -64,9 +66,62 @@ void runLists() {
   print('is canonical: $isCanonical');
 
   // unmodifiable runtime Lists
-  final modifiableList = [DateTime.now(), DateTime.now()]; // a const list is not allowed here since DateTime.now() is not a compile-time constant
+  final modifiableList = [
+    DateTime.now(),
+    DateTime.now(),
+  ]; // a const list is not allowed here since DateTime.now() is not a compile-time constant
   final unmodifiableList = List.unmodifiable(
     modifiableList,
   ); // creates an unmodifiable list at runtime
   print('unmodifiable list: $unmodifiableList');
+
+  // Combining lists
+  void combiningLists() {
+    const pastries = ['cookies', 'croissants'];
+    const candy = ['Junior Mints', 'Twizzlers', 'M&Ms'];
+
+    final desserts = ['donuts'];
+    desserts.addAll(pastries);
+    desserts.addAll(candy);
+    print('combined desserts: $desserts');
+  }
+
+  // Combining lists with the spread operator
+  void combiningListsWithSpreadOperator() {
+    const pastries = ['cookies', 'croissants'];
+    const candy = ['Junior Mints', 'Twizzlers', 'M&Ms'];
+
+    final desserts = ['donuts', ...pastries, ...candy];
+
+    print('combined desserts with spread operator: $desserts');
+  }
+
+  // collection if statement
+  void collectionIf() {
+    final random = Random();
+    bool peanutAllergy = random.nextBool();
+    List<String> sensitiveCandy = [
+      'Junior Mints',
+      'Twizzlers',
+      if (!peanutAllergy) 'Reeses',
+    ];
+    print(sensitiveCandy);
+  }
+
+  // collection for statement
+  void collectionFor() {
+    const deserts = ['gobi', 'sahara', 'arctic'];
+
+    var bigDeserts = [
+      'ARABIAN',
+      for (var desert in deserts) desert.toUpperCase(), // 'collection for' is used here to transform and add elements to the list
+    ];
+
+    print(bigDeserts);
+  }
+
+  combiningLists();
+  combiningListsWithSpreadOperator();
+  collectionIf();
+  collectionFor();
 }
