@@ -87,20 +87,4 @@ void main(List<String> arguments) {
 
   // show lists
   runLists();
-
-  // special desserts
-  const specialDesserts = Desserts();
-  const specialDesserts1 = Desserts(['sugar buns', 'lollipop']);
-  const specialDessert3 = Desserts();
-  bool isCanonical = specialDessert3 == specialDesserts;
-  print('desserts default object: $specialDesserts');
-  print('desserts custom object: $specialDesserts1');
-  print('is canonical: $isCanonical');
-
-  // unmodifiable runtime Lists
-  final modifiableList = [DateTime.now(), DateTime.now()]; // a const list is not allowed here since DateTime.now() is not a compile-time constant
-  final unmodifiableList = List.unmodifiable(
-    modifiableList,
-  ); // creates an unmodifiable list at runtime
-  print('unmodifiable list: $unmodifiableList');
 }
