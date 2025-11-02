@@ -1,5 +1,4 @@
 import 'package:mycliapp/collections.dart';
-import 'package:mycliapp/desserts.dart';
 import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
