@@ -167,4 +167,24 @@ void runningSets() {
   liquids.remove('coffee');
   print('original set: $drinks');
   print('shallow copy: $liquids');
+
+  // set operations
+
+  // intersection property
+  final setA = {8, 2, 3, 1, 4};
+  final setB = {1, 6, 5, 4};
+  print('setA: $setA');
+  print('setB: $setB');
+  final setIntersection = setA.intersection(setB);
+  print('intersection of setA and setB: $setIntersection');
+
+  // union property
+  final union = setA.union(setB);
+  print('union of setA and setB: $union');
+
+  // difference property
+  final differenceB = setB.difference(
+    setA,
+  ); // returns a set of elements found in B exclusively
+  print('setB-setA: $differenceB');
 }
