@@ -86,4 +86,7 @@ void main(List<String> arguments) {
 
   // show lists
   runLists();
+
+  // show sets
+  runningSets();
 }

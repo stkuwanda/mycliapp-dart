@@ -114,7 +114,9 @@ void runLists() {
 
     var bigDeserts = [
       'ARABIAN',
-      for (var desert in deserts) desert.toUpperCase(), // 'collection for' is used here to transform and add elements to the list
+      for (var desert in deserts)
+        desert
+            .toUpperCase(), // 'collection for' is used here to transform and add elements to the list
     ];
 
     print(bigDeserts);
@@ -124,4 +126,45 @@ void runLists() {
   combiningListsWithSpreadOperator();
   collectionIf();
   collectionFor();
+}
+
+void runningSets() {
+  // creating a set
+  final Set<int> someSet =
+      {}; // this is an eempty set which allows only integers
+  // final someSet = <int>{}; //same as above but shorter code
+  print('Empty set: $someSet');
+
+  // use contains property to check availability of an element
+  final treats = {
+    'cake',
+    'pie',
+    'donut',
+  }; // type inference determines the set as Set<String>
+  print('treats contains cake: ${treats.contains('cake')}');
+  print('treats contains cookies: ${treats.contains('cookies')}');
+
+  // adding single elements
+  final drinks = <String>{};
+  drinks.add('cola');
+  drinks.add('cola');
+  drinks.add('cola');
+  drinks.add('water');
+  drinks.add('juice');
+  print('a set of drinks: $drinks'); // note all duplicates are ignored
+
+  // removing elements using the remove property
+  drinks.remove('juice');
+  print('a set of drinks, removed juice: $drinks');
+
+  // adding multiple elements with addAll property
+  drinks.addAll(['juice', 'milk', 'coffee']);
+  print('a set of drinks: $drinks');
+
+  // shallow copy a set using toSet method
+  final liquids = drinks.toSet();
+  print(drinks);
+  liquids.remove('coffee');
+  print('original set: $drinks');
+  print('shallow copy: $liquids');
 }
