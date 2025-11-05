@@ -89,4 +89,7 @@ void main(List<String> arguments) {
 
   // show sets
   runningSets();
+
+  // show maps
+  runningMaps();
 }

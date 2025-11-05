@@ -188,3 +188,45 @@ void runningSets() {
   ); // returns a set of elements found in B exclusively
   print('setB-setA: $differenceB');
 }
+
+void runningMaps() {
+  final Map<String, int> emptyMap = {};
+  // alternatively: final emptyMap = Map<String, int>{};
+  print('empty map: $emptyMap');
+
+  // map literal
+  final inventory = {'cakes': 20, 'pies': 24, 'donuts': 34, 'cookies': 151};
+  final digitToWord = {1: 'one', 2: 'two', 3: 'three', 4: 'four'};
+  print('inventory $inventory');
+  print('map with int key: $digitToWord');
+
+  // accessing values
+  final numberOfCakes = inventory['cakes'];
+  print('access number of cakes using key: $numberOfCakes');
+
+  // add elements to a map
+  inventory['brownies'] = 10;
+  print('updated inventory: $inventory');
+
+  // use the remove method to remove elements by key
+  inventory.remove('brownies');
+  print('no brownies: $inventory');
+
+  // map useful properties
+  print('inventory.isEmpty: ${inventory.isEmpty}');
+  print('inventory.isNotEmpty: ${inventory.isNotEmpty}');
+  print('inventory.length: ${inventory.length}');
+  print('inventory.keys: ${inventory.keys}');
+  print('inventory.values: ${inventory.values}');
+
+  // check for key existence
+  print("inventory.containsKey('pies'): ${inventory.containsKey('pies')}");
+
+  // check for value existence
+  print("inventory.containsValue(151): ${inventory.containsValue(151)}");
+
+  // use the entries property to iterate over elements of a map
+  for (final entry in inventory.entries) {
+    print('${entry.key} => ${entry.value}');
+  }
+}
