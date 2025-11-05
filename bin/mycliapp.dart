@@ -46,7 +46,7 @@ void main(List<String> arguments) {
   print(person.greet());
   print(personFromMap.greet());
 
-  final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34);
+  final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34, emails: ['simba@admin.com']);
   print(user.greet());
 
   const family = '👨🏾‍👩🏾‍👧🏾‍👦🏾';

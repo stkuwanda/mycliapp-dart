@@ -1,47 +1,97 @@
+import 'dart:convert';
+
 import 'person.dart';
 import 'role.dart';
 
 class User extends Person {
-  final String id;
-  final Role role;
-
   // Constructor with all parameters
   // required named parameters for better clarity
   // forwarding name and age to the superclass constructor
   const User({
     required this.id,
     required this.role,
+    required this.emails,
     required String name,
     required int age,
-  }) : super(name, age);
+  }) : _name = name,
+       super(name, age);
+
+  final String id;
+  final Role role;
+  final List<String> emails;
+  final String _name;
 
   // Named constructor for guest users with initializer list and constructor forwarding
-  const User.byId(this.id) : role = Role.guest, super('Guest', 0);
+  const User.byId(this.id)
+    : role = Role.guest,
+      _name = 'Guest',
+      emails = const ['officer@guest.com'],
+      super('Guest', 0);
 
   // Named constructor for default admin user with constructor forwarding and initializer list
   const User.defaultAdmin()
-    : this(id: 'A001', role: Role.admin, name: 'Admin', age: 30);
+    : this(
+        id: 'A001',
+        role: Role.admin,
+        name: 'Admin',
+        age: 30,
+        emails: const ['officer@admin.com'],
+      );
 
   // factory constructor for deafault officer user
   factory User.defaultOfficer() {
-    return User(id: 'O001', role: Role.officer, name: 'Officer', age: 28);
+    return User(
+      id: 'O001',
+      role: Role.officer,
+      name: 'Officer',
+      age: 28,
+      emails: ['officer@admin,com'],
+    );
   }
 
   factory User.fromMap(Map<String, dynamic> data) {
     return User(
-      id: data['id'],
-      role: Role.values.firstWhere(
-        // finding enum from string
-        (e) => e.name == data['role'], // match by name
-        orElse: () => Role.guest, // default value if no match found
-      ),
-      name: data['name'],
-      age: data['age'],
+      id: data['id'] is String ? data['id'] : '',
+      role: data['role'] is Role
+          ? Role.values.firstWhere(
+              // finding enum from string
+              (e) => e.name == (data['role'] as Role).name, // match by name
+              orElse: () => Role.guest, // default value if no match found
+            )
+          : Role.guest,
+      name: data['name'] is String ? data['name'] : '',
+      age: data['age'] is int ? data['age'] : 18,
+      emails: List<String>.from(
+        data['emails'] ?? [],
+      ), // default to empty list if null
     );
+  }
+
+  factory User.desirializefromJson(String jsonString) {
+    final jsonMap = jsonDecode(jsonString);
+    return User.fromMap(jsonMap);
   }
 
   @override
   String greet() {
-    return '${super.greet()} My role is ${role.name}.';
+    return '${super.greet()} My role is ${role.name}. My emails are: ${emails.join(', ')}';
+  }
+
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      'id': id,
+      'name': _name,
+      'emails': emails,
+      'role': role.name,
+    };
+  }
+
+  String serializeToJson() {
+    return jsonEncode(toJson());
+  }
+
+  @override
+  String toString() {
+    return greet();
   }
 }

@@ -1,7 +1,10 @@
 // Lists have a zero based index and are ordered positionally by default
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:mycliapp/desserts.dart';
+import 'package:mycliapp/role.dart';
+import 'package:mycliapp/user.dart';
 
 void runLists() {
   var grievances =
@@ -229,4 +232,35 @@ void runningMaps() {
   for (final entry in inventory.entries) {
     print('${entry.key} => ${entry.value}');
   }
+
+  // serialization through maps
+  final user = User(
+    id: 'U111',
+    role: Role.admin,
+    name: 'Simba',
+    age: 34,
+    emails: ['simba@admin.com', 'stk.gmail.com'],
+  );
+
+  print('user object: $user');
+  final userMap = user.toJson();
+  print('user map: $userMap');
+  final userString = jsonEncode(userMap);
+  print('user string: $userString');
+  print('userstring from user.toJsonString(): ${user.serializeToJson()}');
+
+  // deserialization through maps
+  final jsonMap = jsonDecode(user.serializeToJson());
+
+  if (jsonMap is Map<String, dynamic>) {
+    print("You've got a map!");
+  } else {
+    print('Your JSON string is wrongly formatted!');
+  }
+  
+  final jsonString = user.serializeToJson();
+  print('user object from jsonMap: ${User.fromMap(jsonMap)}');
+  print(
+    'user object from JSON string: ${User.desirializefromJson(jsonString)}',
+  );
 }
