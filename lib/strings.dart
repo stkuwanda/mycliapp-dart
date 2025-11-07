@@ -71,9 +71,40 @@ void runningStrings() {
   // the . matches any single character
   // the ? makes the character preceding it in the pattern optional
   final optionalSingle = RegExp('c.?t');
-  print('hasMatch with \'cat\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cat')}');
-  print('hasMatch with \'cot\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cot')}');
-  print('hasMatch with \'cut\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cut')}');
-  print('hasMatch with \'ct\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('ct')}');
-  print('hasMatch with \'c t\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('c t')}');
+  print(
+    'hasMatch with \'cat\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cat')}',
+  );
+  print(
+    'hasMatch with \'cot\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cot')}',
+  );
+  print(
+    'hasMatch with \'cut\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cut')}',
+  );
+  print(
+    'hasMatch with \'ct\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('ct')}',
+  );
+  print(
+    'hasMatch with \'c t\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('c t')}',
+  );
+
+  // matching multiple characters
+  // + : The plus sign means the character it follows can occur one or more times.
+  // * : The asterisk means the character it follows can occur zero or more times.
+  final oneOrMore = RegExp('wo+w');
+  print('hasMatch with for \'ww\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('ww')}');
+  print('hasMatch with for \'wow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wow')}');
+  print('hasMatch with for \'wooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooow')}');
+  print('hasMatch with for \'wooooooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooooooow')}');
+  final zeroOrMore = RegExp('wo*w');
+  print('hasMatch with for \'ww\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('ww')}');
+  print('hasMatch with for \'wow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wow')}');
+  print('hasMatch with for \'wooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooow')}');
+  print('hasMatch with for \'wooooooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooooooow')}');
+
+  // to match multiple instances of any character, combine . with + or *
+  final anyOneOrMore = RegExp('w.+w');
+  print('hasMatch with for \'ww\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('ww')}');
+  print('hasMatch with for \'wow\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wow')}');
+  print('hasMatch with for \'w123w\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('w123w')}');
+  print('hasMatch with for \'wABCDEFGw\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wABCDEFGw')}');
 }
