@@ -66,4 +66,14 @@ void runningStrings() {
   print('hasMatch with \'concatenation\': ${regex.hasMatch('concatenation')}');
   print('hasMatch with \'dog\': ${regex.hasMatch('dog')}');
   print('hasMatch with \'cats\': ${regex.hasMatch('cats')}');
+
+  // matching with special characters
+  // the . matches any single character
+  // the ? makes the character preceding it in the pattern optional
+  final optionalSingle = RegExp('c.?t');
+  print('hasMatch with \'cat\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cat')}');
+  print('hasMatch with \'cot\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cot')}');
+  print('hasMatch with \'cut\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('cut')}');
+  print('hasMatch with \'ct\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('ct')}');
+  print('hasMatch with \'c t\' for pattern \'\\c.?t\\\': ${optionalSingle.hasMatch('c t')}');
 }
