@@ -29,4 +29,5 @@ void runningStrings() {
   const csvFileLine = 'Martin,Emma,12,Paris,France';
   final fields = csvFileLine.split(',');
   print('split list: $fields');
+  print('joined list $fields to string: ${fields.join('-')}');
 }
