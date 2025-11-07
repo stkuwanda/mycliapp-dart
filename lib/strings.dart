@@ -53,4 +53,11 @@ void runningStrings() {
     buffer.write(' ');
   }
   print('String buffer: $buffer');
+
+  // String Validation
+  const text = 'I love Dart';
+  print('startsWith \'I\': ${text.startsWith('I')}');
+  print('endsWith \'Dart\': ${text.endsWith('Dart')}');
+  print('check if string contains \'love\': ${text.contains('love')}');
+  print('check if string contains \'Flutter\': ${text.contains('Flutter')}');
 }
