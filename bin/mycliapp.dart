@@ -3,6 +3,7 @@ import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
 import 'package:mycliapp/static.dart';
+import 'package:mycliapp/strings.dart';
 import 'package:mycliapp/user.dart';
 import 'package:mycliapp/role.dart';
 import 'package:characters/characters.dart';
@@ -46,7 +47,13 @@ void main(List<String> arguments) {
   print(person.greet());
   print(personFromMap.greet());
 
-  final user = User(id: 'U111', role: Role.admin, name: 'Simba', age: 34, emails: ['simba@admin.com']);
+  final user = User(
+    id: 'U111',
+    role: Role.admin,
+    name: 'Simba',
+    age: 34,
+    emails: ['simba@admin.com'],
+  );
   print(user.greet());
 
   const family = '👨🏾‍👩🏾‍👧🏾‍👦🏾';
@@ -92,4 +99,7 @@ void main(List<String> arguments) {
 
   // show maps
   runningMaps();
+
+  // show strings
+  runningStrings();
 }
