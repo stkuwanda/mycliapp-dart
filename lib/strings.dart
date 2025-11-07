@@ -33,6 +33,24 @@ void runningStrings() {
 
   // replacing strings
   const phrase = 'live and learn';
-  final withUnderscores = phrase.replaceAll(' ', '_'); // replaceFirst for first occurrence
+  final withUnderscores = phrase.replaceAll(
+    ' ',
+    '_',
+  ); // replaceFirst for first occurrence
   print('original: $phrase, output: $withUnderscores');
+
+  // use StringBuffer to efficiently concatenate strings
+  final message = StringBuffer(); // StringBuffer
+  message.write('Hello'); // write method appends strings to buffer
+  message.write(' my name is ');
+  message.write('Ray');
+  final msg = message.toString();
+  print('String object: $msg');
+
+  final buffer = StringBuffer();
+  for (int i = 2; i <= 1024; i *= 2) {
+    buffer.write(i);
+    buffer.write(' ');
+  }
+  print('String buffer: $buffer');
 }
