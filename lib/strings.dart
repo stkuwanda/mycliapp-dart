@@ -30,4 +30,9 @@ void runningStrings() {
   final fields = csvFileLine.split(',');
   print('split list: $fields');
   print('joined list $fields to string: ${fields.join('-')}');
+
+  // replacing strings
+  const phrase = 'live and learn';
+  final withUnderscores = phrase.replaceAll(' ', '_'); // replaceFirst for first occurrence
+  print('original: $phrase, output: $withUnderscores');
 }
