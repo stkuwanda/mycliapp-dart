@@ -60,4 +60,10 @@ void runningStrings() {
   print('endsWith \'Dart\': ${text.endsWith('Dart')}');
   print('check if string contains \'love\': ${text.contains('love')}');
   print('check if string contains \'Flutter\': ${text.contains('Flutter')}');
+
+  // regular expressions7333232
+  final regex = RegExp('cat'); // pattern to match
+  print('hasMatch with \'concatenation\': ${regex.hasMatch('concatenation')}');
+  print('hasMatch with \'dog\': ${regex.hasMatch('dog')}');
+  print('hasMatch with \'cats\': ${regex.hasMatch('cats')}');
 }
