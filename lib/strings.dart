@@ -140,5 +140,10 @@ void runningStrings() {
   print('hasMatch with \'boat\' for pattern \'b[oa]t\': ${set.hasMatch('boat')}');
   print('hasMatch with \'bt\' for pattern \'b[oa]t\': ${set.hasMatch('bt')}');
 
-
+  // pattern matching with a range
+  final range = RegExp('[a-zA-Z]'); // this is the pattern to be matched. [a-zA-Z] is a single character pattern which matches any member of the range i.e any single letter of the alphabet whether upper or lower case
+  print('hasMatch with \'a\' for pattern \'[a-zA-Z]\': ${range.hasMatch('a')}');
+  print('hasMatch with \'H\' for pattern \'[a-zA-Z]\': ${range.hasMatch('H')}');
+  print('hasMatch with \'3z\' for pattern \'[a-zA-Z]\': ${range.hasMatch('3z')}');
+  print('hasMatch with \'2\' for pattern \'[a-zA-Z]\': ${range.hasMatch('2')}');
 }
