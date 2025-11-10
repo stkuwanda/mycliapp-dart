@@ -91,20 +91,54 @@ void runningStrings() {
   // + : The plus sign means the character it follows can occur one or more times.
   // * : The asterisk means the character it follows can occur zero or more times.
   final oneOrMore = RegExp('wo+w');
-  print('hasMatch with for \'ww\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('ww')}');
-  print('hasMatch with for \'wow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wow')}');
-  print('hasMatch with for \'wooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooow')}');
-  print('hasMatch with for \'wooooooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooooooow')}');
+  print(
+    'hasMatch with for \'ww\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('ww')}',
+  );
+  print(
+    'hasMatch with for \'wow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wow')}',
+  );
+  print(
+    'hasMatch with for \'wooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooow')}',
+  );
+  print(
+    'hasMatch with for \'wooooooow\' pattern \'\\wo+w\\\'${oneOrMore.hasMatch('wooooooow')}',
+  );
   final zeroOrMore = RegExp('wo*w');
-  print('hasMatch with for \'ww\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('ww')}');
-  print('hasMatch with for \'wow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wow')}');
-  print('hasMatch with for \'wooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooow')}');
-  print('hasMatch with for \'wooooooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooooooow')}');
+  print(
+    'hasMatch with for \'ww\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('ww')}',
+  );
+  print(
+    'hasMatch with for \'wow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wow')}',
+  );
+  print(
+    'hasMatch with for \'wooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooow')}',
+  );
+  print(
+    'hasMatch with for \'wooooooow\' pattern \'\\wo*w\\\'${zeroOrMore.hasMatch('wooooooow')}',
+  );
 
   // to match multiple instances of any character, combine . with + or *
   final anyOneOrMore = RegExp('w.+w');
-  print('hasMatch with for \'ww\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('ww')}');
-  print('hasMatch with for \'wow\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wow')}');
-  print('hasMatch with for \'w123w\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('w123w')}');
-  print('hasMatch with for \'wABCDEFGw\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wABCDEFGw')}');
+  print(
+    'hasMatch with for \'ww\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('ww')}',
+  );
+  print(
+    'hasMatch with for \'wow\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wow')}',
+  );
+  print(
+    'hasMatch with for \'w123w\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('w123w')}',
+  );
+  print(
+    'hasMatch with for \'wABCDEFGw\' pattern \'\\w.+w\\\'${anyOneOrMore.hasMatch('wABCDEFGw')}',
+  );
+
+  // pattern matching with a set
+  final set = RegExp('b[oa]t'); // this is the pattern to be matched. [oa] is a single character pattern which matches any member of the set i.e either 'o' or 'a' but not both
+  print('hasMatch with \'bat\' for pattern \'b[oa]t\': ${set.hasMatch('bat')}');
+  print('hasMatch with \'bot\' for pattern \'b[oa]t\': ${set.hasMatch('bot')}');
+  print('hasMatch with \'but\' for pattern \'b[oa]t\': ${set.hasMatch('but')}');
+  print('hasMatch with \'boat\' for pattern \'b[oa]t\': ${set.hasMatch('boat')}');
+  print('hasMatch with \'bt\' for pattern \'b[oa]t\': ${set.hasMatch('bt')}');
+
+
 }
