@@ -133,25 +133,54 @@ void runningStrings() {
   );
 
   // pattern matching with a set
-  final set = RegExp('b[oa]t'); // this is the pattern to be matched. [oa] is a single character pattern which matches any member of the set i.e either 'o' or 'a' but not both
+  final set = RegExp(
+    'b[oa]t',
+  ); // this is the pattern to be matched. [oa] is a single character pattern which matches any member of the set i.e either 'o' or 'a' but not both
   print('hasMatch with \'bat\' for pattern \'b[oa]t\': ${set.hasMatch('bat')}');
   print('hasMatch with \'bot\' for pattern \'b[oa]t\': ${set.hasMatch('bot')}');
   print('hasMatch with \'but\' for pattern \'b[oa]t\': ${set.hasMatch('but')}');
-  print('hasMatch with \'boat\' for pattern \'b[oa]t\': ${set.hasMatch('boat')}');
+  print(
+    'hasMatch with \'boat\' for pattern \'b[oa]t\': ${set.hasMatch('boat')}',
+  );
   print('hasMatch with \'bt\' for pattern \'b[oa]t\': ${set.hasMatch('bt')}');
 
   // pattern matching with a set of negated members
-  final excluded = RegExp('b[^oa]t'); // this is the pattern to be matched. [^oa] is a single character pattern which matches any member of the set i.e any single character that is neither 'o' nor 'a'
-  print('hasMatch with \'bat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bat')}');
-  print('hasMatch with \'bot\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bot')}');
-  print('hasMatch with \'but\' for pattern \'b[^oa]t\': ${excluded.hasMatch('but')}');
-  print('hasMatch with \'boat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('boat')}');
-  print('hasMatch with \'bt\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bt')}');
+  final excluded = RegExp(
+    'b[^oa]t',
+  ); // this is the pattern to be matched. [^oa] is a single character pattern which matches any member of the set i.e any single character that is neither 'o' nor 'a'
+  print(
+    'hasMatch with \'bat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bat')}',
+  );
+  print(
+    'hasMatch with \'bot\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bot')}',
+  );
+  print(
+    'hasMatch with \'but\' for pattern \'b[^oa]t\': ${excluded.hasMatch('but')}',
+  );
+  print(
+    'hasMatch with \'boat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('boat')}',
+  );
+  print(
+    'hasMatch with \'bt\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bt')}',
+  );
 
   // pattern matching with a range
-  final range = RegExp('[a-zA-Z]'); // this is the pattern to be matched. [a-zA-Z] is a single character pattern which matches any member of the range i.e any single letter of the alphabet whether upper or lower case
+  final range = RegExp(
+    '[a-zA-Z]',
+  ); // this is the pattern to be matched. [a-zA-Z] is a single character pattern which matches any member of the range i.e any single letter of the alphabet whether upper or lower case
   print('hasMatch with \'a\' for pattern \'[a-zA-Z]\': ${range.hasMatch('a')}');
   print('hasMatch with \'H\' for pattern \'[a-zA-Z]\': ${range.hasMatch('H')}');
-  print('hasMatch with \'3z\' for pattern \'[a-zA-Z]\': ${range.hasMatch('3z')}');
+  print(
+    'hasMatch with \'3z\' for pattern \'[a-zA-Z]\': ${range.hasMatch('3z')}',
+  );
   print('hasMatch with \'2\' for pattern \'[a-zA-Z]\': ${range.hasMatch('2')}');
+
+  // escaping special characters regular expressions
+  // use backslash \ to escape special characters
+  final escaped = RegExp('c\\.t'); // pattern to match 'c.t' literally. optionally use raw string r'c\.t'
+  print(escaped.hasMatch('c.t')); // true
+  print(escaped.hasMatch('cat')); // false
+
+  print('hasMatch with \'c.t\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('c.t')}');
+  print('hasMatch with \'cat\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('cat')}');
 }
