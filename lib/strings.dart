@@ -140,6 +140,14 @@ void runningStrings() {
   print('hasMatch with \'boat\' for pattern \'b[oa]t\': ${set.hasMatch('boat')}');
   print('hasMatch with \'bt\' for pattern \'b[oa]t\': ${set.hasMatch('bt')}');
 
+  // pattern matching with a set of negated members
+  final excluded = RegExp('b[^oa]t'); // this is the pattern to be matched. [^oa] is a single character pattern which matches any member of the set i.e any single character that is neither 'o' nor 'a'
+  print('hasMatch with \'bat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bat')}');
+  print('hasMatch with \'bot\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bot')}');
+  print('hasMatch with \'but\' for pattern \'b[^oa]t\': ${excluded.hasMatch('but')}');
+  print('hasMatch with \'boat\' for pattern \'b[^oa]t\': ${excluded.hasMatch('boat')}');
+  print('hasMatch with \'bt\' for pattern \'b[^oa]t\': ${excluded.hasMatch('bt')}');
+
   // pattern matching with a range
   final range = RegExp('[a-zA-Z]'); // this is the pattern to be matched. [a-zA-Z] is a single character pattern which matches any member of the range i.e any single letter of the alphabet whether upper or lower case
   print('hasMatch with \'a\' for pattern \'[a-zA-Z]\': ${range.hasMatch('a')}');
