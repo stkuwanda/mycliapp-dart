@@ -177,10 +177,18 @@ void runningStrings() {
 
   // escaping special characters regular expressions
   // use backslash \ to escape special characters
-  final escaped = RegExp('c\\.t'); // pattern to match 'c.t' literally. optionally use raw string r'c\.t'
-  print(escaped.hasMatch('c.t')); // true
-  print(escaped.hasMatch('cat')); // false
+  final escaped = RegExp(
+    'c\\.t',
+  ); // pattern to match 'c.t' literally. optionally use raw string r'c\.t'
+  print(
+    'hasMatch with \'c.t\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('c.t')}',
+  );
+  print(
+    'hasMatch with \'cat\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('cat')}',
+  );
 
-  print('hasMatch with \'c.t\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('c.t')}');
-  print('hasMatch with \'cat\' for pattern \'c\\\\.t\' or r\'c\\.t\': ${escaped.hasMatch('cat')}');
+  // matching digits with regular expressions
+  final numbers = RegExp(r'[0-9]');
+  print(numbers.hasMatch('5552021')); // true
+  print(numbers.hasMatch('abcefg2')); // true
 }
