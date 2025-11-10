@@ -191,4 +191,9 @@ void runningStrings() {
   final numbers = RegExp(r'[0-9]');
   print(numbers.hasMatch('5552021')); // true
   print(numbers.hasMatch('abcefg2')); // true
+
+  // matching the beginning and the ending
+  final onlyNumbers = RegExp(r'^[0-9]+$');
+  print('hasMatch with \'5552021\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('5552021')}');
+  print('hasMatch with \'abcefg2\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('abcefg2')}');
 }
