@@ -194,6 +194,39 @@ void runningStrings() {
 
   // matching the beginning and the ending
   final onlyNumbers = RegExp(r'^[0-9]+$');
-  print('hasMatch with \'5552021\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('5552021')}');
-  print('hasMatch with \'abcefg2\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('abcefg2')}');
+  print(
+    'hasMatch with \'5552021\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('5552021')}',
+  );
+  print(
+    'hasMatch with \'abcefg2\' for pattern \'^[0-9]+\$\': ${onlyNumbers.hasMatch('abcefg2')}',
+  );
+
+  // validating a password
+  const password = 'Password1234';
+  final lowerCase = RegExp(r'[a-z]');
+  final uppercase = RegExp(r'[A-Z]');
+  final number = RegExp(r'[0-9]');
+
+  // match length range with {n,m}
+  final goodLength = RegExp(r'.{12,}'); // at least 12 characters long
+  
+  if (!password.contains(goodLength)) {
+    // minimum length check
+    print('Your password must be at least 12 characters long!');
+    return;
+  }
+
+  // password validation logic
+  if (!password.contains(lowerCase)) {
+    // checks for lowercase letters
+    print('Your password must have a lowercase letter!');
+  } else if (!password.contains(uppercase)) {
+    // checks for uppercase letters
+    print('Your password must have an uppercase letter!');
+  } else if (!password.contains(number)) {
+    // checks for numbers
+    print('Your password must have a number!');
+  } else {
+    print('Your password is OK.');
+  }
 }
