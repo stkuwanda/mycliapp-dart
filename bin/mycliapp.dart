@@ -1,4 +1,5 @@
 import 'package:mycliapp/collections.dart';
+import 'package:mycliapp/functions.dart';
 import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
@@ -102,4 +103,7 @@ void main(List<String> arguments) {
 
   // show strings
   runningStrings();
+
+  // show anonymous functions
+  runningAnonymousFunctions();
 }
