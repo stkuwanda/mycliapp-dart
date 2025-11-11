@@ -23,6 +23,15 @@ void runningAnonymousFunctions() {
     print('The product of $x with the multiplier is: ${getProduct(x)}');
   }
 
+  // iterating over a list
+  const numbers = [1, 2, 3];
+
+  // using forEach
+  // the recommended way is to use a for in loop
+  numbers.forEach((int number) {
+    printProduct3(number);
+  });
+
   printProduct(3, 4);
   printProduct2(multiply, 5, 6);
   printProduct3(11);
