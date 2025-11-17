@@ -32,7 +32,17 @@ void runningAnonymousFunctions() {
     printProduct3(number);
   });
 
+  // mapping one collection to another
+  const nums = [2, 4, 6, 8, 10, 12];
+  final looped = <int>[];
+  for (final x in nums) {
+    looped.add(x * x);
+  }
+
+  final mapped = nums.map((x) => x * x);
+
   printProduct(3, 4);
   printProduct2(multiply, 5, 6);
   printProduct3(11);
+  print('nums: $nums, looped: $looped, mapped: $mapped');
 }
