@@ -41,8 +41,13 @@ void runningAnonymousFunctions() {
 
   final mapped = nums.map((x) => x * x);
 
+  // filtering a collection
+  final myList = [1, 2, 3, 4, 5, 6];
+  final odds = myList.where((element) => element.isOdd);
+
+
   printProduct(3, 4);
   printProduct2(multiply, 5, 6);
   printProduct3(11);
-  print('nums: $nums, looped: $looped, mapped: $mapped');
+  print('nums: $nums, looped: $looped, mapped: $mapped, odd numbers: $odds');
 }
