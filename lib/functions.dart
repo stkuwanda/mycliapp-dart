@@ -45,9 +45,16 @@ void runningAnonymousFunctions() {
   final myList = [1, 2, 3, 4, 5, 6];
   final odds = myList.where((element) => element.isOdd);
 
+  // reducing a collection
+  const evens = [2, 4, 6, 8, 10, 12];
+  var total = evens.reduce((sum, element) => sum + element);
+
+  // folding a collection
+  total = evens.fold<int>(0, (sum, element) => sum + element);
 
   printProduct(3, 4);
   printProduct2(multiply, 5, 6);
   printProduct3(11);
   print('nums: $nums, looped: $looped, mapped: $mapped, odd numbers: $odds');
+  print('evens: $evens, total: $total');
 }
