@@ -1,6 +1,7 @@
 import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
 import 'package:mycliapp/functions.dart';
+import 'package:mycliapp/mywidget.dart';
 import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
@@ -116,7 +117,7 @@ void main(List<String> arguments) {
     },
   );
 
-  var clickThis =  Button(
+  var clickThis = Button(
     title: 'Open',
     onPressed: () {
       print('Button clicked!');
@@ -126,4 +127,12 @@ void main(List<String> arguments) {
   clickMe.onPressed(name: 'Table', descript: 'Table of ints');
   clickMe.onPressed.call(name: 'Chart', descript: 'Chart of values');
   clickThis.onPressed();
+
+  var specialWidget = MyWidget(
+    onTouch: print,
+    timeStamp: DateTime.now().toIso8601String,
+  );
+
+  specialWidget.onTouch(3.14);
+  print('Touched at: ${specialWidget.timeStamp?.call()}');
 }
