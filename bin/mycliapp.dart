@@ -109,12 +109,21 @@ void main(List<String> arguments) {
   runningAnonymousFunctions();
 
   // show callbacks
-  var clickMe = Button(
+  var clickMe = TextButton(
     title: 'Open',
     onPressed: ({required String name, required String descript}) {
       print('opening... $name, description: $descript');
     },
   );
 
+  var clickThis =  Button(
+    title: 'Open',
+    onPressed: () {
+      print('Button clicked!');
+    },
+  );
+
   clickMe.onPressed(name: 'Table', descript: 'Table of ints');
+  clickMe.onPressed.call(name: 'Chart', descript: 'Chart of values');
+  clickThis.onPressed();
 }
