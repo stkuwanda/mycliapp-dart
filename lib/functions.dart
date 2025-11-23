@@ -1,6 +1,6 @@
 void runningAnonymousFunctions() {
-  // anonymous function assigned to a variable
-  Function multiply = (num a, num b) => a * b;
+  // local function declaration
+  num multiply(num a, num b) => a * b;
 
   // arrow syntax for single expression functions
   void printProduct(num a, num b) {
@@ -28,9 +28,9 @@ void runningAnonymousFunctions() {
 
   // using forEach
   // the recommended way is to use a for in loop
-  numbers.forEach((int number) {
+  for (final number in numbers) {
     printProduct3(number);
-  });
+  }
 
   // mapping one collection to another
   const nums = [2, 4, 6, 8, 10, 12];
