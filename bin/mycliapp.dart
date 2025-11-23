@@ -129,8 +129,8 @@ void main(List<String> arguments) {
   clickThis.onPressed();
 
   var specialWidget = MyWidget(
-    onTouch: print,
-    timeStamp: DateTime.now().toIso8601String,
+    onTouch: print, // using tear-down
+    timeStamp: DateTime.now().toIso8601String, // using tear-down
   );
 
   specialWidget.onTouch(3.14);
