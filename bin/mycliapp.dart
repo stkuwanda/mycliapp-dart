@@ -1,3 +1,4 @@
+import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
 import 'package:mycliapp/functions.dart';
 import 'package:mycliapp/person.dart';
@@ -106,4 +107,14 @@ void main(List<String> arguments) {
 
   // show anonymous functions
   runningAnonymousFunctions();
+
+  // show callbacks
+  var clickMe = Button(
+    title: 'Open',
+    onPressed: ({required String name, required String descript}) {
+      print('opening... $name, description: $descript');
+    },
+  );
+
+  clickMe.onPressed(name: 'Table', descript: 'Table of ints');
 }
