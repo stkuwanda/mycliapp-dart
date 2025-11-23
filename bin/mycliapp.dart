@@ -135,11 +135,4 @@ void main(List<String> arguments) {
 
   specialWidget.onTouch(3.14);
   print('Touched at: ${specialWidget.timeStamp?.call()}');
-
-  ZipCode code = 87101;
-  int number = 42;
-  print(code is ZipCode);
-  print(code is int);
-  print(number is ZipCode);
-  print(number is int);
 }
