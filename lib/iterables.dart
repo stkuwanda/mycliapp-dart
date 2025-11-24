@@ -19,6 +19,12 @@ void runningIterables() {
   for (final square in squares2) {
     print(square);
   }
+
+  var numbers = NumberIterable(5);
+
+  for (var n in numbers) {
+    print(n);
+  }
 }
 
 // an iterator class that implements Iterator interface
@@ -40,3 +46,38 @@ class HundredSquares extends Iterable<int> {
   @override
   Iterator<int> get iterator => SquaredIterator();
 }
+
+// A custom iterable class that uses a generator function
+class NumberIterable extends Iterable<int> {
+  final int max;
+
+  NumberIterable(this.max);
+
+  @override
+  Iterator<int> get iterator => _NumberIterator(max);
+}
+
+// The iterator itself, powered by a sync* generator
+class _NumberIterator implements Iterator<int> {
+  final int max;
+  late Iterator<int> _inner;
+
+  _NumberIterator(this.max) {
+    // Use a generator function to produce numbers
+    _inner = _generateNumbers(max).iterator;
+  }
+
+  // Generator function
+  Iterable<int> _generateNumbers(int max) sync* {
+    for (var i = 1; i <= max; i++) {
+      yield i;
+    }
+  }
+
+  @override
+  int get current => _inner.current;
+
+  @override
+  bool moveNext() => _inner.moveNext();
+}
+

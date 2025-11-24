@@ -1,8 +1,10 @@
 import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
+import 'package:mycliapp/desserts.dart';
 import 'package:mycliapp/functions.dart';
 import 'package:mycliapp/iterables.dart';
 import 'package:mycliapp/mywidget.dart';
+import 'package:mycliapp/nullability.dart';
 import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
@@ -139,4 +141,10 @@ void main(List<String> arguments) {
 
   // show iterables
   runningIterables();
+
+  // show nullability
+  runningNullability();
+
+  var funnyDesserts = Desserts(['ice cream', 'cakes', 'chocolates', 'cookies']);
+  print(funnyDesserts);
 }
