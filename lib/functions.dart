@@ -52,6 +52,21 @@ void runningAnonymousFunctions() {
   // folding a collection
   total = evens.fold<int>(0, (sum, element) => sum + element);
 
+  // expanding or flattening a collection
+  // A list of numbers
+  var digits = [1, 2, 3];
+
+  // Use expand to turn each number into a list of two values: [n, n*10]
+  var expanded = digits.expand((n) => [n, n * 10]);
+
+  var words = ["Hi", "Bye"];
+
+  // Expand each word into its characters
+  var chars = words.expand((word) => word.split(""));
+
+  print('expanded: ${expanded.toList()}');
+  print('chars: ${chars.toList()}');
+
   printProduct(3, 4);
   printProduct2(multiply, 5, 6);
   printProduct3(11);
