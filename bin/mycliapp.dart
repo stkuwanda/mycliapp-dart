@@ -1,6 +1,7 @@
 import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
 import 'package:mycliapp/functions.dart';
+import 'package:mycliapp/iterables.dart';
 import 'package:mycliapp/mywidget.dart';
 import 'package:mycliapp/person.dart';
 import 'package:mycliapp/point.dart';
@@ -135,4 +136,7 @@ void main(List<String> arguments) {
 
   specialWidget.onTouch(3.14);
   print('Touched at: ${specialWidget.timeStamp?.call()}');
+
+  // show iterables
+  runningIterables();
 }
