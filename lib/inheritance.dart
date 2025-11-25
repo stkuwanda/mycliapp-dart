@@ -1,5 +1,6 @@
 import 'package:mycliapp/animal.dart';
 import 'package:mycliapp/grade.dart';
+import 'package:mycliapp/interfaces.dart';
 import 'package:mycliapp/someone.dart';
 import 'package:mycliapp/student.dart';
 
@@ -36,4 +37,9 @@ void runAbstractClasses() {
   Animal animal = platypus;
   print(platypus);
   print(animal);
+
+  // business logic separate from infrastructure logic via interface
+  final repository = DataRepository();
+  final temperature = repository.fetchTemperature('Manila');
+  print('temperature: $temperature');
 }
