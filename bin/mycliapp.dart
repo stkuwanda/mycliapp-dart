@@ -151,4 +151,5 @@ void main(List<String> arguments) {
 
   // show inheritance
   runInheritance();
+  runAbstractClasses();
 }

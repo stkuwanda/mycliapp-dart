@@ -1,3 +1,4 @@
+import 'package:mycliapp/animal.dart';
 import 'package:mycliapp/grade.dart';
 import 'package:mycliapp/someone.dart';
 import 'package:mycliapp/student.dart';
@@ -24,4 +25,15 @@ void runInheritance() {
   // print(jessie is Student);
   // print(jessie is SchoolBandMember);
   // print(jessie is! StudentAthlete);
+}
+
+void runAbstractClasses() {
+  final platypus = Platypus();
+  print(platypus.isAlive);
+  platypus.eat();
+  platypus.move();
+  platypus.layEggs();
+  Animal animal = platypus;
+  print(platypus);
+  print(animal);
 }
