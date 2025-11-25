@@ -2,6 +2,7 @@ import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
 import 'package:mycliapp/desserts.dart';
 import 'package:mycliapp/functions.dart';
+import 'package:mycliapp/inheritance.dart';
 import 'package:mycliapp/iterables.dart';
 import 'package:mycliapp/mywidget.dart';
 import 'package:mycliapp/nullability.dart';
@@ -147,4 +148,7 @@ void main(List<String> arguments) {
 
   var funnyDesserts = Desserts(['ice cream', 'cakes', 'chocolates', 'cookies']);
   print(funnyDesserts);
+
+  // show inheritance
+  runInheritance();
 }
