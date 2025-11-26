@@ -3,6 +3,7 @@ import 'package:mycliapp/grade.dart';
 import 'package:mycliapp/interfaces.dart';
 import 'package:mycliapp/someone.dart';
 import 'package:mycliapp/student.dart';
+import 'package:mycliapp/extensions.dart';
 
 void runInheritance() {
   final jon = Someone('Jon', 'Snow');
@@ -45,4 +46,12 @@ void runAbstractClasses() {
   final repository = DataRepository();
   final temperature = repository.fetchTemperature('Manila');
   print('temperature: $temperature');
+
+  // using extension method
+  final original = 'I like extensions!';
+  final secret = original.encoded;
+  final revealed = secret.decoded;
+  print(secret);
+  print(revealed);
+  print(5.cubed);
 }
