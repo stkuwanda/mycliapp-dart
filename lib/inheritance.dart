@@ -30,12 +30,15 @@ void runInheritance() {
 
 void runAbstractClasses() {
   final platypus = Platypus();
+  final eagle = Eagle();
   print(platypus.isAlive);
   platypus.eat();
   platypus.move();
   platypus.layEggs();
+  eagle.layEggs();
   Animal animal = platypus;
   print(platypus);
+  print(eagle);
   print(animal);
 
   // business logic separate from infrastructure logic via interface
