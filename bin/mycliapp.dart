@@ -11,6 +11,7 @@ import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
 import 'package:mycliapp/static.dart';
 import 'package:mycliapp/strings.dart';
+import 'package:mycliapp/tree.dart';
 import 'package:mycliapp/user.dart';
 import 'package:mycliapp/role.dart';
 import 'package:characters/characters.dart';
@@ -152,4 +153,7 @@ void main(List<String> arguments) {
   // show inheritance
   runInheritance();
   runAbstractClasses();
+
+  // show trees
+  runTrees();
 }
