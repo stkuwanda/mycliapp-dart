@@ -49,8 +49,16 @@ class Node<T> {
   Node(this.value);
 
   T value;
-  Node? leftChild;
-  Node? rightChild;
+  Node<T>? leftChild;
+  Node<T>? rightChild;
+
+  @override
+  String toString() {
+    final left = leftChild?.toString() ?? '';
+    final parent = value.toString();
+    final right = rightChild?.toString() ?? '';
+    return '$left $parent $right';
+  }
 }
 
 Node<int> createIntTree1() {
@@ -97,6 +105,37 @@ Node<E>? createTree<E>(List<E> nodes, [int index = 0]) {
   return node;
 }
 
+// binary search tree
+class BinarySearchTree<E extends Comparable<E>> {
+  Node<E>? root; // root of the tree
+
+  // method to insert a new value into the tree
+  void insert(E value) {
+    root = _insertAt(root, value);
+  }
+
+  // helper method to insert a new value at a given node
+  Node<E> _insertAt(Node<E>? node, E value) {
+    // 1
+    if (node == null) {
+      return Node(value);
+    }
+
+    // 2
+    if (value.compareTo(node.value) < 0) {
+      node.leftChild = _insertAt(node.leftChild, value);
+    } else {
+      node.rightChild = _insertAt(node.rightChild, value);
+    }
+
+    // 3
+    return node;
+  }
+
+  @override
+  String toString() => root.toString();
+}
+
 void runTrees() {
   final intTree = createIntTree();
   final stringTree = createStringTree();
@@ -114,4 +153,14 @@ void runTrees() {
   print(tree?.leftChild?.rightChild?.value);
   print(tree?.rightChild?.leftChild?.value);
   print(tree?.rightChild?.rightChild?.value);
+
+  // binary search tree
+  var tree2 = BinarySearchTree<num>();
+  tree2.insert(7);
+  tree2.insert(1);
+  tree2.insert(9);
+  tree2.insert(0);
+  tree2.insert(5);
+  tree2.insert(8);
+  print(tree2);
 }
