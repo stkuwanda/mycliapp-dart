@@ -45,10 +45,13 @@ void withSpecificExceptionHandling() {
   const json = 'abc'; // '{"name":"bob"}
 
   try {
+    1 ~/ 0;
     dynamic result = jsonDecode(json);
     print(result);
   } on FormatException {
     print('The JSON string was invalid.');
+  } on UnsupportedError {
+    print("can't divide by zero");
   }
 }
 
