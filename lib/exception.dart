@@ -1,4 +1,4 @@
-// import 'dart:convert';
+import 'dart:convert';
 
 // void _functionOne() {
 //   _functionTwo();
@@ -26,6 +26,20 @@ void buggyCode() {
   print(buffer);
 }
 
+// this code uses exception handling
+void withExceptionHandling() {
+  const json = 'abc';
+
+  try {
+    dynamic result = jsonDecode(json);
+    print(result);
+  } catch (e, s) {
+    print('There was an error.');
+    print(e); // print error object
+    print(s); // print stack trace object
+  }
+}
+
 void runExceptions() {
   // 1 ~/ 0; // IntegerDivisionByZeroException
 
@@ -41,4 +55,6 @@ void runExceptions() {
   // _functionOne(); // stack trace
 
   // buggyCode(); // RangeError
+
+  withExceptionHandling(); // app doesn't crash // FormatException
 }
