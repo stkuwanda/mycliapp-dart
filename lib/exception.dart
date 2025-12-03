@@ -28,7 +28,7 @@ void buggyCode() {
 
 // this code uses exception handling
 void withExceptionHandling() {
-  const json = 'abc';
+  const json = 'abc'; // '{"name":"bob"}
 
   try {
     dynamic result = jsonDecode(json);
@@ -37,6 +37,18 @@ void withExceptionHandling() {
     print('There was an error.');
     print(e); // print error object
     print(s); // print stack trace object
+  }
+}
+
+// this code catches a specific exception
+void withSpecificExceptionHandling() {
+  const json = 'abc'; // '{"name":"bob"}
+
+  try {
+    dynamic result = jsonDecode(json);
+    print(result);
+  } on FormatException {
+    print('The JSON string was invalid.');
   }
 }
 
@@ -56,5 +68,6 @@ void runExceptions() {
 
   // buggyCode(); // RangeError
 
-  withExceptionHandling(); // app doesn't crash // FormatException
+  // withExceptionHandling(); // app doesn't crash // FormatException
+  withSpecificExceptionHandling(); // FormatException
 }
