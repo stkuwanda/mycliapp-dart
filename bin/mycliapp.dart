@@ -1,5 +1,6 @@
 import 'package:mycliapp/button.dart';
 import 'package:mycliapp/collections.dart';
+import 'package:mycliapp/concurrency.dart';
 import 'package:mycliapp/desserts.dart';
 import 'package:mycliapp/enums.dart';
 import 'package:mycliapp/exception.dart';
@@ -167,4 +168,7 @@ void main(List<String> arguments) {
 
   // show exceptions
   runExceptions();
+
+  // show concurrency
+  runConcurrency();
 }
