@@ -14,6 +14,7 @@ import 'package:mycliapp/point.dart';
 import 'package:mycliapp/singleton.dart';
 import 'package:mycliapp/static.dart';
 import 'package:mycliapp/strings.dart';
+import 'package:mycliapp/todo.dart';
 import 'package:mycliapp/tree.dart';
 import 'package:mycliapp/user.dart';
 import 'package:mycliapp/role.dart';
@@ -171,4 +172,7 @@ void main(List<String> arguments) {
 
   // show concurrency
   runConcurrency();
+
+  // show http request
+  runHttpRequest().whenComplete(() => print('completed...'));
 }
