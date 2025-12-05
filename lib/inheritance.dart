@@ -29,7 +29,7 @@ void runInheritance() {
   // print(jessie is! StudentAthlete);
 }
 
-void runAbstractClasses() {
+Future<void> runAbstractClasses() async {
   final platypus = Platypus();
   final eagle = Eagle();
   print(platypus.isAlive);
@@ -44,7 +44,7 @@ void runAbstractClasses() {
 
   // business logic separate from infrastructure logic via interface
   final repository = DataRepository();
-  final temperature = repository.fetchTemperature('Manila');
+  final temperature = await repository.fetchTemperature('Manila');
   print('temperature: $temperature');
 
   // using extension method
