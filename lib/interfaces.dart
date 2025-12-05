@@ -42,6 +42,18 @@ class FakeWebServer implements DataRepository {
       completer.completeError(ArgumentError("$city doesn't exist"));
     }
 
-    return Future.delayed(Duration(seconds: 2), () => completer.future);
+    return completer.future;
+    // return Future.delayed(Duration(seconds: 2), () => completer.future);
+  }
+}
+
+Future<void> main() async {
+  final web = FakeWebServer();
+  try {
+    final city = 'Manilas';
+    final degrees = await web.fetchTemperature(city);
+    print("It's $degrees degrees in $city.");
+  } on ArgumentError catch (error) {
+    print(error);
   }
 }
