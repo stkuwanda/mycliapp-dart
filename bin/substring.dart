@@ -1,4 +1,4 @@
-void main() {
+void extractFromTextWithSubstring() {
   const text = '''
 <h1>Dart Tutorial</h1>
 <h1>Flutter Tutorial</h1>
@@ -20,4 +20,24 @@ void main() {
     print(heading);
     position = end + '</h1>'.length;
   }
+}
+
+void extractFromTextWithRegExp() {
+  const text = '''
+  <h1>Dart Tutorial</h1>
+  <h1>Flutter Tutorial</h1>
+  <h1>Other Tutorials</h1>
+  ''';
+
+  final headings = RegExp(r'<h1>(.+)</h1>');
+  final matches = headings.allMatches(text);
+
+  for (final match in matches) {
+    print(match.group(1));
+  }
+}
+
+void main() {
+  // extractFromTextWithSubstring();
+  extractFromTextWithRegExp();
 }
