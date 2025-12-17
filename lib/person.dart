@@ -1,6 +1,6 @@
 class Person {
   // private and immutable fields
-  final String _name; 
+  final String _name;
   final int _age;
 
   // Const onstructor with optional, positional parameters and default values
@@ -10,7 +10,11 @@ class Person {
   // they will point to the same memory location, ultimately saving memory.
   // Note: const constructors can only initialize final fields.
   // Immutable instances are beneficial in mutlti-threaded environments as they can be shared across threads without synchronization issues.
-  const Person([String name = 'Default', int age = 0]) : _name = name, _age = age;
+  const Person([String name = 'Default', int age = 0])
+    : _name = name,
+      _age = age;
+
+  const Person.defaultPerson() : this('John Doe', 30); // Redirecting constructor
 
   String greet() {
     return 'Hello my name is $_name and I am $_age years old.';
