@@ -30,3 +30,7 @@ void runPointExample() {
   print('Point p2: $p2');
   print('Point p3 (p1 + p2): $p3');
 }
+
+void main() {
+  runPointExample();
+}

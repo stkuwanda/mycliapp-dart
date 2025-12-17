@@ -13,18 +13,15 @@ class User extends Person {
     required this.emails,
     required String name,
     required int age,
-  }) : _name = name,
-       super(name, age);
+  }): super(name, age);
 
   final String id;
   final Role role;
   final List<String> emails;
-  final String _name;
 
   // Named constructor for guest users with initializer list and constructor forwarding
   const User.byId(this.id)
     : role = Role.guest,
-      _name = 'Guest',
       emails = const ['officer@guest.com'],
       super('Guest', 0);
 
@@ -74,15 +71,16 @@ class User extends Person {
 
   @override
   String greet() {
-    return '${super.greet()} My role is ${role.name}. My emails are: ${emails.join(', ')}';
+    return '${super.greet()} My role is ${role.name}. My emails are: ${emails.join(', ')}. ${super.name}';
   }
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
       'id': id,
-      'name': _name,
+      'name': name,
       'emails': emails,
       'role': role.name,
+      'age': age,
     };
   }
 
