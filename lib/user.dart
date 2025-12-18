@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'person.dart';
 import 'role.dart';
 
@@ -71,7 +70,7 @@ class User extends Person {
 
   @override
   String greet() {
-    return '${super.greet()} My role is ${role.name}. My emails are: ${emails.join(', ')}. ${super.name}';
+    return '${super.greet()} My role is ${role.name}. My emails are: ${emails.join(', ')}. $name';
   }
 
   Map<String, dynamic> toJson() {
