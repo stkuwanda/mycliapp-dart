@@ -46,7 +46,9 @@ Future<void> runAbstractClasses() async {
   final repository = DataRepository();
   final temperature = await repository.fetchTemperature('Manila');
   print('temperature: $temperature');
+}
 
+void runExtensions() {
   // using extension method
   final original = 'I like extensions!';
   final secret = original.encoded;
@@ -54,4 +56,8 @@ Future<void> runAbstractClasses() async {
   print(secret);
   print(revealed);
   print(5.cubed);
+}
+
+void main() {
+  runExtensions();
 }
