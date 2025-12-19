@@ -4,6 +4,14 @@ class Node<T> {
   Node<T>? rightChild;
 
   Node(this.value);
+
+  @override
+  String toString() {
+    final left = leftChild?.toString() ?? '';
+    final parent = value.toString();
+    final right = rightChild?.toString() ?? '';
+    return '$left $parent $right'; // in-order traversal
+  }
 }
 
 Node<E>? createTree<E>(List<E> nodes, [int index = 0]) {
@@ -29,7 +37,6 @@ void printPreOrder(Node? node) {
   printPreOrder(node.rightChild);
 }
 
-
 void treeManualPrint(Node<int>? tree) {
   print(tree?.value);
   print(tree?.leftChild?.value);
@@ -40,9 +47,50 @@ void treeManualPrint(Node<int>? tree) {
   print(tree?.rightChild?.rightChild?.value);
 }
 
-void main() {
-  final tree = createTree([7, 1, 9, 0, 5, 8]);
+class BinarySearchTree<E extends Comparable<E>> {
+  Node<E>? root;
 
-  treeManualPrint(tree);
-  printPreOrder(tree);
+  void insert(E value) {
+    root = _insertAt(root, value);
+  }
+
+  Node<E> _insertAt(Node<E>? node, E value) {
+    // Base case
+    if (node == null) {
+      return Node(value);
+    }
+
+    // Recursive case
+    if (value.compareTo(node.value) < 0) {
+      node.leftChild = _insertAt(node.leftChild, value);
+    } else {
+      node.rightChild = _insertAt(node.rightChild, value);
+    }
+
+    // Return the unchanged node pointer
+    return node; // always returns the root node in the end
+  }
+
+  @override
+  String toString() => root.toString(); // will trigger in-order traversal on print
+}
+
+void createAndPrintBST() {
+  var tree = BinarySearchTree<num>();
+  tree.insert(7);
+  tree.insert(1);
+  tree.insert(9);
+  tree.insert(0);
+  tree.insert(5);
+  tree.insert(8);
+
+  print(tree);
+}
+
+void main() {
+  // final tree = createTree([7, 1, 9, 0, 5, 8]);
+
+  // treeManualPrint(tree);
+  // printPreOrder(tree);
+  createAndPrintBST();
 }
