@@ -7,7 +7,7 @@ void run() {
     dynamic result = jsonDecode(json);
     print(result);
     runThrow();
-  } catch (e, s) {
+  } on FormatException catch (e, s) {
     print('There was an error.');
     print(e); // print the error message
     print(s); // print the stack trace
