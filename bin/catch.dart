@@ -130,8 +130,19 @@ void runCatchMultipleExceptions() {
   }
 }
 
+void runList() {
+  const list = [1, 2, 3, 4];
+
+  try {
+    list.add(5); // no compile-time error but run-time error
+  } on UnsupportedError {
+    print('UnsupportedError: Cannot add to an unmodifiable list.');
+  }
+}
+
 void main() {
   // run();4
-  runCatchMultipleExceptions();
-  validatePassword('hbdbTiiiiih123ui !');
+  // runCatchMultipleExceptions();
+  // validatePassword('hbdbTiiiiih123ui !');
+  runList();
 }
