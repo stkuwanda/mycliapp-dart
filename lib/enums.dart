@@ -103,9 +103,9 @@ void runEnums() {
   // using interface methods
   final weather = Weather.cloudy;
   String serialized = weather.serialize();
-  print(serialized);
+  print('Weather.cloudy enum value serialized to the string: $serialized');
   Weather deserialized = Weather.deserialize(serialized);
-  print(deserialized);
+  print('Deserialized string "$serialized" back to $deserialized enum value');
 
   // using mixins with enums
   final fruit = Fruit.banana;
@@ -118,4 +118,8 @@ void runEnums() {
   double defaultSize = Default.size.value;
   int defaultWeight = Default.weight.value;
   print('Font: $defaultFont, Size: $defaultSize, Weight: $defaultWeight');
+}
+
+void main() {
+  runEnums();
 }
